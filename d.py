@@ -56,9 +56,9 @@ def rstop_rasa(con):
             log.info("Already killed")
 
 
-def rrun(con, repo_loc):
+def rrun(con, repo_loc, cmd):
     with con.cd(repo_loc):
-        rexe(con, "python3 run.py")
+        rexe(con, cmd)
 
 
 def show_memory_usage(con):
@@ -125,6 +125,7 @@ if(__name__ == "__main__"):
 
     lpush()
     rpull(con, "/var/www/gatsbyD")
+    rrun(con, '/var/www/gatsbyD/first', 'gatsby build')
     # rstop_rasa(con)
     # rshutdown_flask()
     #rtrain(con, "p/pro/iii/bot")
